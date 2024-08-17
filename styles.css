@@ -1,15 +1,40 @@
 /* General Styles */
 body {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #000428, #004e92);
     color: #ffffff;
+    animation: backgroundChange 10s infinite;
+}
+
+@keyframes backgroundChange {
+    0% { background: linear-gradient(135deg, #000428, #004e92); }
+    50% { background: linear-gradient(135deg, #004e92, #000428); }
+    100% { background: linear-gradient(135deg, #000428, #004e92); }
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.header-content {
+    text-align: center;
 }
 
 h1, h2, h3 {
-    text-align: center;
     color: #00ffcc;
+}
+
+.sub-title {
+    color: #ffffff;
+    margin-top: 10px;
 }
 
 nav ul {
@@ -17,7 +42,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    background-color: #004e92;
+    background-color: transparent;
 }
 
 nav ul li {
@@ -40,7 +65,12 @@ nav ul li a:hover {
     margin-top: 20px;
 }
 
-/* Skills Section */
+/* Section Styles */
+.section {
+    padding: 80px 20px;
+    margin-top: 50px;
+}
+
 .skill-bars {
     width: 80%;
     margin: 20px auto;
@@ -89,7 +119,7 @@ nav ul li a:hover {
 }
 
 /* Experience Section */
-.experience-card {
+.experience-card, .education-card {
     width: 80%;
     margin: 20px auto;
     background-color: #222;
@@ -99,7 +129,7 @@ nav ul li a:hover {
     transition: transform 0.3s;
 }
 
-.experience-card:hover {
+.experience-card:hover, .education-card:hover {
     transform: translateY(-10px);
 }
 
@@ -111,6 +141,6 @@ section#contact a {
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #004e92;
+    background-color: rgba(0, 0, 0, 0.8);
     margin-top: 40px;
 }
