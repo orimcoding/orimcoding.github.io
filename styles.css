@@ -9,6 +9,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     transition: background 1s ease-in-out;
+    position: relative; /* Added for body::before and body::after positioning */
 }
 
 body::before {
@@ -122,6 +123,7 @@ nav ul li a:hover {
     border: 1px solid #333;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     margin-bottom: 20px;
+    position: relative; /* Added to ensure proper layering */
 }
 
 .section:hover {
@@ -136,6 +138,8 @@ nav ul li a:hover {
     border-right: .15em solid #00d8ff;
     white-space: nowrap;
     animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+    display: inline-block;
+    width: 100%; /* Ensures the text is centered */
 }
 
 /* Skill Bar Styles */
@@ -151,10 +155,12 @@ nav ul li a:hover {
     position: relative;
     transition: transform 0.3s, box-shadow 0.3s;
     border-radius: 5px;
+    overflow: hidden; /* Ensures tooltip and progress bar are within bounds */
+    text-align: center; /* Centering text within the skill block */
 }
 
 .skill:hover {
-    transform: scale(1.05);
+    transform: scale(1.03); /* Reduced scale to prevent spreading */
     box-shadow: 0 0 15px rgba(0, 216, 255, 0.6);
 }
 
@@ -190,7 +196,7 @@ nav ul li a:hover {
     padding: 5px 0;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    bottom: 125%; /* Position above the element */
     left: 50%;
     margin-left: -60px;
     opacity: 0;
@@ -212,7 +218,7 @@ nav ul li a:hover {
 }
 
 .experience-card:hover, .education-card:hover, .award-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     box-shadow: 0 0 15px rgba(0, 216, 255, 0.6);
 }
 
@@ -220,6 +226,7 @@ h3 {
     margin-top: 0;
     font-size: 1.5em;
     transition: color 0.3s;
+    text-align: center; /* Centered headings */
 }
 
 h3:hover {
@@ -254,7 +261,7 @@ footer {
 
 .back-to-top.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-10px);
 }
 
 .back-to-top:hover {
