@@ -2,13 +2,50 @@
 body {
     font-family: 'Roboto Mono', monospace;
     color: #f4f4f4;
-    background: linear-gradient(45deg, #1c1c1c, #3a3a3a);
-    background-image: radial-gradient(circle at 50% 50%, #1a1a1a, #333333 70%);
-    background-size: cover;
+    background: radial-gradient(circle, #1a1a1a, #333333);
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    overflow-x: hidden;
     transition: background 1s ease-in-out;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: url('https://www.transparenttextures.com/patterns/dark-mesh.png');
+    z-index: -1;
+    background-size: cover;
+    opacity: 0.2;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0;
+    }
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, #00d8ff, transparent);
+    z-index: -2;
+    opacity: 0.3;
+    animation: bubble 8s infinite ease-in-out;
 }
 
 /* Header Styles */
@@ -21,6 +58,7 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 /* Header Content */
@@ -36,6 +74,12 @@ h1 {
     font-size: 2.5em;
     font-weight: bold;
     color: #e0e0e0;
+    transition: color 0.3s ease;
+}
+
+h1:hover {
+    color: #00d8ff;
+    text-shadow: 0 0 15px rgba(0, 216, 255, 0.7);
 }
 
 /* Subtitle */
@@ -61,45 +105,37 @@ nav ul li a {
     color: #f4f4f4;
     font-weight: bold;
     font-size: 1.1em;
-    transition: color 0.3s, text-shadow 0.3s;
+    transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
 nav ul li a:hover {
     color: #00d8ff;
     text-shadow: 0 0 10px rgba(0, 216, 255, 0.7);
+    transform: translateY(-3px);
 }
 
 /* Section Styles */
 .section {
-    padding: 70px 20px; /* Added top padding for fixed header */
+    padding: 90px 20px;
     background-color: rgba(30, 30, 30, 0.9);
-    border-top: 1px solid #333;
-    transition: background-color 0.3s;
     border-radius: 10px;
+    border: 1px solid #333;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
 }
 
-/* Section Content */
-.section-content {
-    max-width: 1200px;
-    margin: 0 auto;
+.section:hover {
+    background-color: rgba(40, 40, 40, 1);
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 216, 255, 0.3);
 }
 
 /* Typing Animation */
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
 .typing-effect {
     overflow: hidden;
     border-right: .15em solid #00d8ff;
     white-space: nowrap;
     animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: #00d8ff; }
 }
 
 /* Skill Bar Styles */
@@ -114,6 +150,7 @@ nav ul li a:hover {
     margin-bottom: 20px;
     position: relative;
     transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
 }
 
 .skill:hover {
@@ -153,7 +190,7 @@ nav ul li a:hover {
     padding: 5px 0;
     position: absolute;
     z-index: 1;
-    bottom: 125%; /* Position above the element */
+    bottom: 125%;
     left: 50%;
     margin-left: -60px;
     opacity: 0;
@@ -164,21 +201,6 @@ nav ul li a:hover {
     visibility: visible;
     opacity: 1;
 }
-
-.python { width: 90%; background-color: #4caf50; }
-.java { width: 85%; background-color: #2196f3; }
-.javafx { width: 75%; background-color: #f44336; }
-.dart { width: 70%; background-color: #ff9800; }
-.htmlCss { width: 95%; background-color: #e91e63; }
-.sql { width: 80%; background-color: #9c27b0; }
-.github { width: 90%; background-color: #ff5722; }
-.vscode { width: 95%; background-color: #00bcd4; }
-.jupyter { width: 85%; background-color: #009688; }
-.eclipse { width: 80%; background-color: #673ab7; }
-.flutter { width: 70%; background-color: #3f51b5; }
-.pytorch { width: 60%; background-color: #9c27b0; }
-.react { width: 80%; background-color: #00d8ff; }
-.tensorflow { width: 65%; background-color: #ffc107; }
 
 /* Experience & Education Styles */
 .experience-card, .education-card, .award-card {
@@ -197,11 +219,12 @@ nav ul li a:hover {
 h3 {
     margin-top: 0;
     font-size: 1.5em;
+    transition: color 0.3s;
 }
 
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
+h3:hover {
+    color: #00d8ff;
+    text-shadow: 0 0 10px rgba(0, 216, 255, 0.7);
 }
 
 /* Footer Styles */
