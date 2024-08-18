@@ -1,98 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ori Marx - Portfolio</title>
+    <title>Ori Marx | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro:wght@400;600&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <div class="container">
+        <div class="header-content">
             <h1>Ori Marx</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <p class="sub-title">Aspiring Software Engineer | Tech Enthusiast</p>
         </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Technical Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section id="about">
-        <div class="container">
+    <section id="about" class="section">
+        <div class="section-content">
             <h2>About Me</h2>
-            <p>I’m a high school student with a deep passion for technology, particularly in computer science and computer engineering. My journey began with a fascination for problem-solving, leading me to excel in application programming, software engineering, and data analysis. I thrive on challenges and am committed to leveraging my skills to innovate and create positive change in the world.</p>
-            <p>As I prepare for college, I’m eager to immerse myself in a rigorous academic environment that will expand my technical skills and foster creativity. With a growth mindset and determination to push boundaries, I’m excited to collaborate, learn, and make a meaningful impact in the tech industry.</p>
+            <p>
+                I'm a high school student with a deep passion for technology, particularly in computer science and computer engineering.
+                My journey began with a fascination for problem-solving, leading me to excel in application programming, software engineering,
+                and data analysis. I thrive on challenges and am committed to leveraging my skills to innovate and create positive change in the world.
+            </p>
+            <p>
+                As I prepare for college, I’m eager to immerse myself in a rigorous academic environment that will expand my technical skills
+                and foster creativity. With a growth mindset and determination to push boundaries, I’m excited to collaborate, learn, and make a meaningful
+                impact in the tech industry.
+            </p>
         </div>
     </section>
 
-    <section id="education">
-        <div class="container">
-            <h2>Education</h2>
-            <p><strong>Vernon Hills High School, Vernon Hills, IL</strong><br>
-            Expected Graduation: May 2025<br>
-            Unweighted GPA: 4.0, Weighted GPA: 4.43<br>
-            Relevant Coursework: AP Computer Science Principles, AP Computer Science A, Data Structures & Algorithms @ Illinois Institute of Technology, AP Physics 1, AP Physics C - Mechanics / Electricity & Magnetism, AP Calculus BC, AP Statistics</p>
-            <p><strong>Relevant Awards:</strong> D128 STEAM Showcase - 1st Place Entrepreneurship Division, AP Scholar with Distinction, National Honor Society Member</p>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
+    <section id="skills" class="section">
+        <div class="section-content">
             <h2>Technical Skills</h2>
-            <p><strong>Code Languages:</strong> Python (including NumPy / Requests / Pandas / Beautiful Soup), Java, JavaFX, Dart, HTML/CSS, SQL</p>
-            <p><strong>Software Proficiency:</strong> GitHub, Microsoft VSCode, Jupyter Notebook, Eclipse</p>
-            <p><strong>Framework Proficiency:</strong> Flutter, PyTorch, React, TensorFlow</p>
+            <div class="skill-bars">
+                <div class="skill">
+                    <p>Python</p>
+                    <div class="progress-bar"><span class="python"></span></div>
+                </div>
+                <div class="skill">
+                    <p>Java</p>
+                    <div class="progress-bar"><span class="java"></span></div>
+                </div>
+                <div class="skill">
+                    <p>JavaFX</p>
+                    <div class="progress-bar"><span class="javafx"></span></div>
+                </div>
+                <div class="skill">
+                    <p>Dart</p>
+                    <div class="progress-bar"><span class="dart"></span></div>
+                </div>
+                <div class="skill">
+                    <p>HTML/CSS</p>
+                    <div class="progress-bar"><span class="htmlCss"></span></div>
+                </div>
+                <div class="skill">
+                    <p>SQL</p>
+                    <div class="progress-bar"><span class="sql"></span></div>
+                </div>
+                <div class="skill">
+                    <p>GitHub</p>
+                    <div class="progress-bar"><span class="github"></span></div>
+                </div>
+                <div class="skill">
+                    <p>VSCode</p>
+                    <div class="progress-bar"><span class="vscode"></span></div>
+                </div>
+                <div class="skill">
+                    <p>Jupyter Notebook</p>
+                    <div class="progress-bar"><span class="jupyter"></span></div>
+                </div>
+                <div class="skill">
+                    <p>Eclipse</p>
+                    <div class="progress-bar"><span class="eclipse"></span></div>
+                </div>
+                <div class="skill">
+                    <p>Flutter</p>
+                    <div class="progress-bar"><span class="flutter"></span></div>
+                </div>
+                <div class="skill">
+                    <p>PyTorch</p>
+                    <div class="progress-bar"><span class="pytorch"></span></div>
+                </div>
+                <div class="skill">
+                    <p>React</p>
+                    <div class="progress-bar"><span class="react"></span></div>
+                </div>
+                <div class="skill">
+                    <p>TensorFlow</p>
+                    <div class="progress-bar"><span class="tensorflow"></span></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="experience">
-        <div class="container">
+    <section id="experience" class="section">
+        <div class="section-content">
             <h2>Experience</h2>
-            <div class="experience-item">
-                <h3>classCalendar LLC, Vernon Hills, IL</h3>
-                <p><strong>Chief Executive Officer | Board President</strong><br>
-                Owning 25% of the company with an expected annual revenue of $40K.<br>
-                Managing Full-Stack Code Development Process.<br>
-                Leading Social Media campaigns to drive user installations and led development of SEO.<br>
-                Hired a Pro-Bono Law Firm that assisted in the formation of LLC.<br>
-                Implemented Ad Network with an Average eCPM equaling $10.50</p>
+            <div class="experience-card">
+                <h3>Chief Executive Officer | classCalendar LLC</h3>
+                <p>Vernon Hills, IL | November 2023 - Present</p>
+                <ul>
+                    <li>Owning 25% of the company with an expected annual revenue of $40K.</li>
+                    <li>Managing Full-Stack Code Development Process.</li>
+                    <li>Leading Social Media campaigns to drive user installations and development of SEO.</li>
+                    <li>Hired a Pro-Bono Law Firm that assisted in the formation of LLC.</li>
+                    <li>Implemented Ad Network with an Average eCPM equaling $10.50.</li>
+                </ul>
             </div>
-            <div class="experience-item">
-                <h3>Computer Science Club, Vernon Hills High School</h3>
-                <p><strong>Vice President of STEAM | Member</strong><br>
-                Attending weekly meetings, learning about aspects of employment in the field of computer science, as well as collaborating with fellow students about coding and similar interests within computer science.<br>
-                Leading the operations in creating and conducting the annual VHHS STEAM Showcase in January.</p>
+            <div class="experience-card">
+                <h3>Vice President of STEAM | Computer Science Club</h3>
+                <p>Vernon Hills High School, Vernon Hills, IL | August 2023 – Present</p>
+                <ul>
+                    <li>Attending weekly meetings to explore employment opportunities in computer science.</li>
+                    <li>Collaborating with fellow students about coding and similar interests within the field.</li>
+                    <li>Leading operations in creating and conducting the annual VHHS STEAM Showcase in January.</li>
+                </ul>
             </div>
-            <div class="experience-item">
-                <h3>printpal.io, Vernon Hills, IL</h3>
-                <p><strong>Intern</strong><br>
-                Obtained mastery of several Python libraries.<br>
-                Became proficient in ML engineering of 3D-Printing object detection.<br>
-                Effectively collaborated with the CEO and other interns to produce thousands of lines of functioning code.</p>
+            <div class="experience-card">
+                <h3>Intern | printpal.io</h3>
+                <p>Vernon Hills, IL | May 2024 - August 2024</p>
+                <ul>
+                    <li>Mastered several Python libraries.</li>
+                    <li>Became proficient in ML engineering of 3D-Printing object detection.</li>
+                    <li>Collaborated with the CEO and other interns to produce thousands of lines of functioning code.</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="container">
+    <section id="education" class="section">
+        <div class="section-content">
+            <h2>Education</h2>
+            <div class="education-card">
+                <h3>Vernon Hills High School</h3>
+                <p>Vernon Hills, IL | Expected Graduation: May 2025</p>
+                <p>Unweighted GPA: 4.0, Weighted GPA: 4.43</p>
+                <p>Relevant Coursework:</p>
+                <ul>
+                    <li>AP Computer Science Principles</li>
+                    <li>AP Computer Science A</li>
+                    <li>Data Structures & Algorithms @ Illinois Institute of Technology</li>
+                    <li>AP Physics 1</li>
+                    <li>AP Physics C - Mechanics / Electricity & Magnetism</li>
+                    <li>AP Calculus BC</li>
+                    <li>AP Statistics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards" class="section">
+        <div class="section-content">
+            <h2>Awards</h2>
+            <div class="award-card">
+                <h3>D128 STEAM Showcase - 1st Place Entrepreneurship Division</h3>
+            </div>
+            <div class="award-card">
+                <h3>AP Scholar with Distinction</h3>
+            </div>
+            <div class="award-card">
+                <h3>National Honor Society Member</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="section-content">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:ori.marx@vhhscougars.org">ori.marx@vhhscougars.org</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/ori-m-b008a427b/" target="_blank">LinkedIn Profile</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/ori-m-b008a427b/">linkedin.com/in/ori-m-b008a427b/</a></p>
+            <p>Location: Vernon Hills, IL, 60061</p>
+            <p>Phone: (224) 424-9262</p>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Ori Marx. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 Ori Marx. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -1,155 +1,74 @@
-// Smooth Scroll for Navigation Links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+// Dynamic Skill Bar Animation
+const skills = document.querySelectorAll('.skill .progress-bar span');
 
-// Add Intersection Observer for Animations
-const sections = document.querySelectorAll('section');
-
-const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+window.addEventListener('scroll', () => {
+    skills.forEach(skill => {
+        const skillTop = skill.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (skillTop < windowHeight - 100) {
+            skill.style.width = skill.dataset.skillLevel;
         }
     });
-}, options);
-
-sections.forEach(section => {
-    section.classList.add('hidden');
-    observer.observe(section);
 });
 
-// Add Click Event for Buttons
-document.querySelectorAll('button').forEach(button => {
-    button.addEventListener('click', () => {
-        alert('Button clicked!');
+// Smooth Scrolling for Navigation Links
+const navLinks = document.querySelectorAll('nav ul li a');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
     });
 });
 
-// Scroll Animation
-const scrollToTopButton = document.createElement('button');
-scrollToTopButton.textContent = 'Scroll to Top';
-scrollToTopButton.classList.add('scroll-to-top');
-document.body.appendChild(scrollToTopButton);
-
-scrollToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
+// Back to Top Button
+const backToTopButton = document.createElement('button');
+backToTopButton.textContent = '⬆️';
+backToTopButton.className = 'back-to-top';
+document.body.appendChild(backToTopButton);
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
-        scrollToTopButton.classList.add('visible');
+        backToTopButton.classList.add('visible');
     } else {
-        scrollToTopButton.classList.remove('visible');
+        backToTopButton.classList.remove('visible');
     }
 });
 
-// Dynamic Content Loading
-document.addEventListener('DOMContentLoaded', () => {
-    const dynamicContent = `
-        <section class="dynamic-content">
-            <h2>Dynamic Content</h2>
-            <p>This section is dynamically added to the page using JavaScript.</p>
-        </section>
-    `;
-    document.body.insertAdjacentHTML('beforeend', dynamicContent);
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Form Validation
-const form = document.querySelector('form');
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = form.querySelector('[name="name"]').value;
-    const email = form.querySelector('[name="email"]').value;
-    if (name === '' || email === '') {
-        alert('Please fill out all fields.');
-    } else {
-        alert(`Thank you for contacting us, ${name}!`);
+// Dynamic Year in Footer
+const currentYear = new Date().getFullYear();
+document.querySelector('footer p').innerHTML = `&copy; ${currentYear} Ori Marx. All rights reserved.`;
+
+// Typing Effect for About Section
+const aboutText = "I'm a high school student with a deep passion for technology, particularly in computer science and computer engineering. My journey began with a fascination for problem-solving, leading me to excel in application programming, software engineering, and data analysis. I thrive on challenges and am committed to leveraging my skills to innovate and create positive change in the world.";
+
+let i = 0;
+const typingSpeed = 50;
+
+function typeWriter() {
+    if (i < aboutText.length) {
+        document.querySelector('#about .section-content p').textContent += aboutText.charAt(i);
+        i++;
+        setTimeout(typeWriter, typingSpeed);
     }
+}
+
+window.onload = () => {
+    typeWriter();
+};
+
+// Dark Mode Toggle
+const darkModeToggle = document.createElement('button');
+darkModeToggle.textContent = '🌓';
+darkModeToggle.className = 'dark-mode-toggle';
+document.body.appendChild(darkModeToggle);
+
+darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
 });
 
-// Create Animated Elements
-const createAnimatedElements = () => {
-    for (let i = 0; i < 10; i++) {
-        const animatedDiv = document.createElement('div');
-        animatedDiv.classList.add('animated-item');
-        document.body.appendChild(animatedDiv);
-    }
-};
-createAnimatedElements();
-
-// Hover Effects
-document.querySelectorAll('.animated-item').forEach(item => {
-    item.addEventListener('mouseover', () => {
-        item.classList.add('hovered');
-    });
-    item.addEventListener('mouseout', () => {
-        item.classList.remove('hovered');
-    });
-});
-
-// Utility Functions
-const debounce = (func, wait) => {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-};
-
-const throttle = (func, limit) => {
-    let lastFunc;
-    let lastRan;
-    return (...args) => {
-        if (!lastRan) {
-            func.apply(this, args);
-            lastRan = Date.now();
-        } else {
-            clearTimeout(lastFunc);
-            lastFunc = setTimeout(() => {
-                if ((Date.now() - lastRan) >= limit) {
-                    func.apply(this, args);
-                    lastRan = Date.now();
-                }
-            }, limit - (Date.now() - lastRan));
-        }
-    };
-};
-
-// Add Event Listeners for Dynamic Features
-document.querySelectorAll('.dynamic-item').forEach(item => {
-    item.addEventListener('click', () => {
-        item.classList.toggle('active');
-    });
-});
-
-// Animation Trigger
-const triggerAnimations = () => {
-    document.querySelectorAll('.animate-on-scroll').forEach(element => {
-        element.classList.add('visible');
-    });
-};
-
-document.addEventListener('scroll', throttle(triggerAnimations, 200));
-
-// Initialize Elements
-const initializeElements = () => {
-    document.querySelectorAll('.scroll-animation').forEach(element => {
-        element.classList.add('animate');
-    });
-};
-initializeElements();
