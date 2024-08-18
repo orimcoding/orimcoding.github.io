@@ -72,3 +72,6 @@ darkModeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
+// Typing Effect for About Section
+const typingElement = document.querySelector('#about .section-content p');
+typingElement.classList.add('typing-effect');

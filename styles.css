@@ -3,39 +3,52 @@ body {
     font-family: 'Roboto Mono', monospace;
     color: #f4f4f4;
     background: linear-gradient(45deg, #1c1c1c, #3a3a3a);
+    background-image: radial-gradient(circle at 50% 50%, #1a1a1a, #333333 70%);
+    background-size: cover;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    transition: background 5s ease-in-out;
+    transition: background 1s ease-in-out;
 }
 
 /* Header Styles */
 header {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 20px 0;
     text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
+/* Header Content */
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* Header Title */
 h1 {
     margin: 0;
     font-size: 2.5em;
     font-weight: bold;
+    color: #e0e0e0;
 }
 
+/* Subtitle */
 .sub-title {
     font-size: 1.2em;
     color: #ccc;
 }
 
+/* Navigation Styles */
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 20px 0 0;
 }
 
 nav ul li {
@@ -48,28 +61,45 @@ nav ul li a {
     color: #f4f4f4;
     font-weight: bold;
     font-size: 1.1em;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 nav ul li a:hover {
     color: #00d8ff;
+    text-shadow: 0 0 10px rgba(0, 216, 255, 0.7);
 }
 
 /* Section Styles */
 .section {
-    padding: 50px 20px;
-    background-color: #222;
+    padding: 70px 20px; /* Added top padding for fixed header */
+    background-color: rgba(30, 30, 30, 0.9);
     border-top: 1px solid #333;
+    transition: background-color 0.3s;
+    border-radius: 10px;
 }
 
+/* Section Content */
 .section-content {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-h2 {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
+/* Typing Animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.typing-effect {
+    overflow: hidden;
+    border-right: .15em solid #00d8ff;
+    white-space: nowrap;
+    animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #00d8ff; }
 }
 
 /* Skill Bar Styles */
@@ -82,6 +112,13 @@ h2 {
 .skill {
     width: 45%;
     margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 216, 255, 0.6);
 }
 
 .skill p {
@@ -93,11 +130,39 @@ h2 {
     background-color: #333;
     border-radius: 5px;
     overflow: hidden;
+    position: relative;
 }
 
 .progress-bar span {
     display: block;
     height: 15px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+.skill .tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the element */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.skill:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
 }
 
 .python { width: 90%; background-color: #4caf50; }
@@ -121,6 +186,12 @@ h2 {
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.experience-card:hover, .education-card:hover, .award-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 216, 255, 0.6);
 }
 
 h3 {
@@ -135,33 +206,57 @@ ul {
 
 /* Footer Styles */
 footer {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.8);
     color: #ccc;
     text-align: center;
     padding: 20px 0;
+    position: relative;
 }
 
-/* Animation */
-body {
-    animation: background-change 10s infinite alternate;
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #f4f4f4;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
 }
 
-@keyframes background-change {
-    0% { background: linear-gradient(45deg, #1c1c1c, #3a3a3a); }
-    50% { background: linear-gradient(45deg, #3a3a3a, #4b4b4b); }
-    100% { background: linear-gradient(45deg, #4b4b4b, #5c5c5c); }
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Additional Styles for Layout */
-header, section, footer {
-    max-width: 1200px;
-    margin: 0 auto;
+.back-to-top:hover {
+    background-color: #00d8ff;
 }
 
-header h1, section h2 {
-    text-align: center;
+/* Dark Mode Styles */
+.dark-mode {
+    background: linear-gradient(45deg, #121212, #333);
+    color: #e0e0e0;
 }
 
+.dark-mode header {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.dark-mode .section {
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+.dark-mode .experience-card, .dark-mode .education-card, .dark-mode .award-card {
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
     .skill-bars {
         flex-direction: column;
@@ -178,3 +273,16 @@ header h1, section h2 {
     }
 }
 
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .sub-title {
+        font-size: 1em;
+    }
+
+    .section h2 {
+        font-size: 1.5em;
+    }
+}
