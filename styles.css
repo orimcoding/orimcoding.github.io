@@ -116,7 +116,7 @@ nav ul li a:hover {
 
 /* Section Styles */
 .section {
-    padding: 90px 20px;
+    padding: 120px 20px 90px; /* Adjusted padding to ensure content is not covered by the fixed menu bar */
     background-color: rgba(30, 30, 30, 0.9);
     border-radius: 10px;
     border: 1px solid #333;
